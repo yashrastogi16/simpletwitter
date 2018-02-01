@@ -86,6 +86,7 @@ class DashboardView(FormView):
 			user = request.user
 			user.backend = 'django.contrib.auth.backends.ModelBackend'
 			content['userdetail'] = user
+			content['following'] = User.objects.filter(follower=request.user)
 			return render_to_response('dashboard.html', content)
 		  
 		else:

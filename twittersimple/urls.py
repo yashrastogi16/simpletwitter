@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from core.views import base, LoginView, home, DashboardView, RegisterView, LogoutView
-from twitter.views import TweetView
+from twitter.views import TweetView, FollowView, UnFollowView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -25,7 +25,9 @@ urlpatterns = [
     url(r'^login/', LoginView.as_view(), name='login-view'),
     url(r'^dashboard/', DashboardView.as_view(), name='dashboard-view'),
     url(r'^register/', RegisterView.as_view(), name='register-view'),
-    url(r'^tweet/', TweetView.as_view(), name='register-view'),
+    url(r'^tweet/', TweetView.as_view(), name='tweet-view'),
+    url(r'^follow/$', FollowView.as_view(), name='follow-view'),
+    url(r'^follow/(?P<pk>[0-9]+)/$', FollowView.as_view(), name='follow-view'),
+    url(r'^unfollow/(?P<pk>[0-9]+)/$', UnFollowView.as_view(), name='unfollow-view'),
     url(r'logout/$', LogoutView.as_view(), name='logout-view'),
-
 ]

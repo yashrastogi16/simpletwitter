@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container" style="background-color:cyan;">
+    All Users : {{users.count}} <hr>
+    <div class="row">
+    <div class="col text-uppercase" style="background-color:green;">User ID</div>
+    <div class="col text-uppercase" style="background-color:green;">User Name </div>
+    <div class="col text-uppercase" style="background-color:green;">Follow</div>
+    <div class="col text-uppercase" style="background-color:green;">Unfollow </div>
+    <div class="w-100"></div>
+    {% for item in users %}
+    <div class="col">{{item.id}}</div>
+    <div class="col">{{item.first_name}}</div>
+    <div class="col"><a href="/follow/{{item.id}}">Follow</a></div>
+    <div class="col"><a href="/unfollow/{{item.id}}">UnFollow</a></div>
+    <div class="w-100"></div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

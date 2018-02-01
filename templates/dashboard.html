@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-Welcome {{userdetail.username}}
+Welcome {{userdetail.username}}, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/logout">Logout</a><br>
 <div class="container " style="background-color:cyan;">
 	Tweets: {{ userdetail.tweet.all.count }}<hr>
     <div class="row">
@@ -32,5 +32,19 @@ Welcome {{userdetail.username}}
     {% endfor %}
   </div>
 </div>
-<a href="/logout">Logout</a><br>
+<hr>
+<div class="container" style="background-color:cyan;">
+    Following : {{following.count}} <hr>
+    <div class="row">
+    <div class="col text-uppercase" style="background-color:green;">User ID</div>
+    <div class="col text-uppercase" style="background-color:green;">User Name </div>
+    <div class="w-100"></div>
+    {% for item in following %}
+    <div class="col">{{item.id}}</div>
+    <div class="col">{{item.first_name}}</div>
+    <div class="w-100"></div>
+    {% endfor %}
+  </div>
+</div>
+<a href="/follow">Follow Users</a><br>
 {% endblock %}
