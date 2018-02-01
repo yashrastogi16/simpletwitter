@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<form class="form-signin" action="/tweet/" method="post" id="tweet__form">
+{{ error}}
+      <h1 class="h3 mb-3 font-weight-normal">Tweet Please!!!</h1>
+      <label >Tweet to the world</label>
+      {{form.tweet}}
+      <br>
+      <button class="btn btn-lg btn-primary" type="submit">Tweet</button>
+    </form>
+{% endblock %}

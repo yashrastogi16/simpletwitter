@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container ">
-	Users Tweets <hr>
-	<div class="row info">
+Welcome {{userdetail.username}}
+<div class="container " style="background-color:cyan;">
+	Tweets: {{ userdetail.tweet.all.count }}<hr>
+    <div class="row">
 	<div class="col text-uppercase" style="background-color:yellow;">Tweet Id</div>
     <div class="col text-uppercase" style="background-color:yellow;">Tweets </div>
     <div class="col text-uppercase" style="background-color:yellow;">Favourites </div>
@@ -15,12 +16,14 @@
     <div class="w-100"></div>
     {% endfor %}
   </div>
-</div><br>
-<div class="container">
-	Users Followers : {{userdetail.follower.all.count}} <hr>
+</div>
+<a href="/tweet">Tweet</a><br>
+<br>
+<div class="container" style="background-color:cyan;">
+	Followers : {{userdetail.follower.all.count}} <hr>
 	<div class="row">
-	<div class="col text-uppercase" style="background-color:yellow;">User ID</div>
-    <div class="col text-uppercase" style="background-color:yellow;"> </div>
+	<div class="col text-uppercase" style="background-color:green;">User ID</div>
+    <div class="col text-uppercase" style="background-color:green;">User Name </div>
     <div class="w-100"></div>
 	{% for item in userdetail.follower.all %}
     <div class="col">{{item.id}}</div>
