@@ -4,9 +4,9 @@ Welcome {{userdetail.username}}, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
 <div class="container " style="background-color:cyan;">
 	Tweets: {{ userdetail.tweet.all.count }}<hr>
     <div class="row">
-	<div class="col text-uppercase" style="background-color:yellow;">Tweet Id</div>
-    <div class="col text-uppercase" style="background-color:yellow;">Tweets </div>
-    <div class="col text-uppercase" style="background-color:yellow;">Favourites </div>
+	<div class="col text-uppercase" style="background-color:green;">Tweet Id</div>
+    <div class="col text-uppercase" style="background-color:green;">Tweets </div>
+    <div class="col text-uppercase" style="background-color:green;">Favourites </div>
     <div class="w-100"></div>
     {# <div class="col">Favourites </div> #}
 	{% for item in userdetail.tweet.all %}
@@ -47,4 +47,21 @@ Welcome {{userdetail.username}}, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
   </div>
 </div>
 <a href="/follow">Follow Users</a><br>
+<hr>
+<hr>
+<div class="container" style="background-color:cyan;">
+    Tweets of Other Users <hr>
+    <div class="row">
+    <div class="col text-uppercase" style="background-color:green;">User ID</div>
+    <div class="col text-uppercase" style="background-color:green;">User Name </div>
+    <div class="w-100"></div>
+    {% for item in following %}
+        {% for tweets in item.tweet.all %}
+    <div class="col">{{tweets.id}}</div>
+    <div class="col">{{tweets.tweet}}</div>
+    <div class="w-100"></div>
+        {% endfor %}
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}
