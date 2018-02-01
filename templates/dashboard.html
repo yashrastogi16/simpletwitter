@@ -52,13 +52,17 @@ Welcome {{userdetail.username}}, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
 <div class="container" style="background-color:cyan;">
     Tweets of Other Users <hr>
     <div class="row">
-    <div class="col text-uppercase" style="background-color:green;">User ID</div>
-    <div class="col text-uppercase" style="background-color:green;">User Name </div>
+    <div class="col text-uppercase" style="background-color:green;">Tweet ID</div>
+    <div class="col text-uppercase" style="background-color:green;">Tweet</div>
+    <div class="col text-uppercase" style="background-color:green;">Favourite</div>
+    <div class="col text-uppercase" style="background-color:green;">UnFavourite</div>
     <div class="w-100"></div>
     {% for item in following %}
         {% for tweets in item.tweet.all %}
     <div class="col">{{tweets.id}}</div>
     <div class="col">{{tweets.tweet}}</div>
+    <div class="col"><a href="/favourite/{{tweets.id}}">Favourite</a>{{tweets.favourite.all.count}}</div>
+    <div class="col"><a href="/unfavourite/{{tweets.id}}">UnFavourite</a></div>
     <div class="w-100"></div>
         {% endfor %}
     {% endfor %}

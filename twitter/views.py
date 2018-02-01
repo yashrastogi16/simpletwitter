@@ -12,6 +12,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from .forms import TweetForm
 from core.models import User
+from .models import Tweet
 
 # Create your views here.
 
@@ -65,4 +66,25 @@ class UnFollowView(View):
 				pass
 		return redirect(reverse('dashboard-view'))
 		
+class FavouriteView(View):
+
+	def get(self, request, *args, **kwargs):
+		content = {}
+		if 'pk' in self.kwargs:
+			user = request.user
+			tweetobj = Tweet.objects.get(id=self.kwargs['pk'])
+			tweetobj.favourite.add(user)
+			tweetobj.save()
+		return redirect(reverse('dashboard-view'))
 		
+		
+class UnFavouriteView(View):
+
+	def get(self, request, *args, **kwargs):
+		content = {}
+		if 'pk' in self.kwargs:
+			user = request.user
+			tweetobj = Tweet.objects.get(id=self.kwargs['pk'])
+			tweetobj.favourite.remove(user)
+			tweetobj.save()
+		return redirect(reverse('dashboard-view'))
