@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+<div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+            <div class="panel panel-default">
+                  <div class="panel-heading">
+                              <h3 class="panel-title">Register Here!!!</h3>
+                                    </div>
+                                    <div class="panel-body">
+                              <form action="/register/" autocomplete="off" method="post" >
+                                    <div class="form-group">
+                                          <label>Username</label>
+                                          {{form.username}}
+                                    </div>
+                                    <div class="form-group">
+                                          <label>First Name</label>
+                                          {{form.first_name}}
+                                    </div>
+                                    <div class="form-group">
+                                          <label>Last Name</label>
+                                          {{form.last_name}}
+                                    </div>
+
+                                    <div class="form-group">
+                                          <label>Email Address</label>
+                                          {{form.email}}
+                                    </div>
+
+                                    <div class="form-group">
+                                          <label>Password</label>
+                                          {{form.password}}
+                                    </div>
+                                                                            
+                                    <input type="submit" value="Register" class="btn btn-info btn-block">
+                              
+                              </form>
+                        </div>
+                  </div>
+            </div>
+      </div>
+      </div>
+{% endblock %}

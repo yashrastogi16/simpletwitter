@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<form class="form-signin" action="/login/" method="post" id="login__form">
+{{ error}}
+      <h1 class="h3 mb-3 font-weight-normal">{# IBI Group Twitter #}</h1>
+      <label>Email</label>
+      {{form.email}}
+      <br>
+      <label >Password</label>
+      {{form.password}}
+      <br>
+      <button class="btn btn-lg btn-primary" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+    </form>
+{% endblock %}
