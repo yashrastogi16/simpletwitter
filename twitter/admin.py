@@ -6,7 +6,8 @@ from .models import Tweet
 
 # Register your models here.
 
+
 class TweetAdmin(admin.ModelAdmin):
-	list_display = ('id', 'tweet')
+    list_display = ('id', 'tweet')
 
 admin.site.register(Tweet, TweetAdmin)

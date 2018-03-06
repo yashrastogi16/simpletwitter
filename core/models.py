@@ -6,7 +6,8 @@ from django.db import models
 from django.conf import settings
 # Create your models here.
 
+
 class User(AbstractUser):
-	tweet = models.ManyToManyField(Tweet, blank=True)
-	follower = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True)
-	pass
+    tweet = models.ManyToManyField(Tweet, blank=True)
+    follower = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True)
+    pass
